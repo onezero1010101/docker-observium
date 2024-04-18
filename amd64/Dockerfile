@@ -151,7 +151,7 @@ COPY observium-cron /etc/cron.d/observium
 RUN chmod 644 /etc/logrotate.conf /etc/cron.d/logrotate /etc/cron.d/observium
 
 # syslog config
-COPY observium.conf /etc/syslog-ng/conf.d/observium.conf
+COPY observium-syslog /etc/syslog-ng/conf.d/observium.conf
 
 # configure working directory
 WORKDIR /opt/observium

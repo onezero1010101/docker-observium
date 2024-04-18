@@ -56,4 +56,7 @@ WriteLog "Build environment script for cronjobs"
 ) > "/opt/observium/observium-setenv.sh"
 chmod 750 "/opt/observium/observium-setenv.sh"
 
+# if syslog config line is not already in config.php then add it
+grep -qF 'enable_syslog' /opt/observium/config.php || echo "\$config['enable_syslog'] = 1;" >> /opt/observium/config.php
+
 exit 0

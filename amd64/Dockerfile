@@ -94,8 +94,8 @@ RUN apt install -y  libapache2-mod-php8.1 \
                     apache2 \
                     python3-mysqldb \
                     python3-pymysql \
-                    python-is-python3
-
+                    python-is-python3 \
+                    syslog-ng
 # cleanup
 RUN apt clean && \
     rm -f /etc/apache2/sites-available/* && \
@@ -150,6 +150,9 @@ COPY logrotate-cron /etc/cron.d/logrotate
 COPY observium-cron /etc/cron.d/observium
 RUN chmod 644 /etc/logrotate.conf /etc/cron.d/logrotate /etc/cron.d/observium
 
+# syslog config
+COPY observium.conf /etc/syslog-ng/conf.d/observium.conf
+
 # configure working directory
 WORKDIR /opt/observium
 
@@ -159,6 +162,7 @@ ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
 
 # expose tcp port
 EXPOSE 80/tcp
+EXPOSE 514/udp
 
 # set volumes
 VOLUME ["/opt/observium/logs","/opt/observium/rrd"]

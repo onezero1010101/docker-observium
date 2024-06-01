@@ -166,3 +166,4 @@ EXPOSE 514/udp
 
 # set volumes
 VOLUME ["/opt/observium/logs","/opt/observium/rrd"]
+

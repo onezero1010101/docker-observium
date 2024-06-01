@@ -45,6 +45,7 @@ services:
       - back-tier
     ports:
       - "8888:80"
+      - "514:514/udp"
     restart: always
     depends_on:
       - db

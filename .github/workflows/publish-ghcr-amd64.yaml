@@ -1,7 +1,9 @@
-name: Docker Image CI for GHCR
+name: Docker Image CI for GHCR amd64
 
 on:
-  push
+  push:
+    paths:
+      - amd64/**
 
 jobs:
   build_and_publish:

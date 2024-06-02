@@ -59,7 +59,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 RUN apt-get update && \
     apt-get install -y libapache2-mod-php7.0 php7.0-cli php7.0-mysql php7.0-mysqli php7.0-gd php7.0-mcrypt php7.0-json php-pear snmp fping mysql-server mysql-client python-mysqldb rrdtool subversion whois mtr-tiny ipmitool graphviz imagemagick apache2 && \
     apt-get install -y libvirt-bin && \
-    apt-get install -y cron locales supervisor wget && \
+    apt-get install -y cron locales supervisor wget syslog-ng && \
     apt-get clean && \
     rm -f /etc/apache2/sites-available/* && \
     rm -f /etc/cron.d/* && \

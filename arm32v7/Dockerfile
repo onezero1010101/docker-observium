@@ -124,6 +124,7 @@ ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
 
 # expose tcp port
 EXPOSE 80/tcp
+EXPOSE 514/udp
 
 # set volumes
 VOLUME ["/opt/observium/logs","/opt/observium/rrd"]
